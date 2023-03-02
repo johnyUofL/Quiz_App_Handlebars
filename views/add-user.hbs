@@ -1,0 +1,31 @@
+<main>
+{{!-- Breadcrums--}}
+<h2>Add Card</h2>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add new card</li>
+    </ol>
+</nav>
+{{!-- End Breadcrums--}}
+
+{{!-- Success addition of new card--}}
+
+{{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{alert}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+{{!-- End--}}
+
+
+{{!-- Form to pass send new card--}}
+<form class="row g-3 needs-validation" method="POST" action="/addquestion" novalidate>
+{{!--information is collected from card form--}}
+{{>card-form}}   
+</form>
+
+{{!-- End Form--}}
+</main>

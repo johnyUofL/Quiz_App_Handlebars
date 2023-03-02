@@ -1,0 +1,36 @@
+<main>
+    <form class="playQuiz" method="POST">
+        <div class="quizHead">
+            <h2 class="quizName">Quiz Name</h2>
+        </div>
+
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Question</th>
+                    <th scope="col">Answer</th>
+                    <th scope="col" class="text-end">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+    </form>
+
+    <!-- A, B and C containers. -->
+    <div class="ABC-container">
+        <p class="pr">A</p>
+        <p class="pr">B</p>
+        <p class="pr">C</p>
+    </div>
+
+    <!-- buttons to navigate questions. -->
+    <div class="button-container">
+        <button class="prevBtn" type="Previous"></button>
+        <button class="endBtn" type="Submit">End Game</button>
+        <button class="nextBtn" type="Next"></button>
+    </div>
+
+</main>

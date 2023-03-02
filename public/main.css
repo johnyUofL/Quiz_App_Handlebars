@@ -1,0 +1,379 @@
+:root {
+    --background: #354d72;
+    --text: #fff;
+    --option: #009fb7;
+    --primary-action: #ffda22;
+    --secondary-action: #9bc53d;
+    --delete-action: #444; /* PLACEHOLDER */
+}
+
+/*****************
+ HEADER
+******************/
+
+header {
+    background-color: var(--background);
+    height: 30%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  max-width: 36px;
+  margin-right: 36px;
+}
+
+.header-text {
+  color: white;
+}
+
+header h2 {
+    color: #fff;
+}
+
+#helpIcon {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    align-content: end;
+}
+
+/*****************
+ GENERAL PAGE STYLES
+******************/
+
+body {
+    background-color: var(--background);
+}
+
+main {
+    height: 70%;
+    /* height: 100vh; */
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 40px;
+    padding: 1% 5%;
+    /* padding-left: 5%; */
+    /* padding-right: 5%; */
+}
+
+/*****************
+ HOME PAGE
+******************/
+@font-face {
+    font-family: quicksand;
+    src: url("fonts\quicksand");
+    font-weight: bold;
+  }
+  
+  @font-face {
+    font-family: kollektif;
+    src: url("fonts\kollektif");
+  }
+  
+  
+  * {
+      font-family: kollektif;
+  }
+  
+
+  .search-bar {
+    margin: 200px auto;
+    width: 500px;
+    height: 60px;
+  }
+  
+  
+  .form {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  
+  .search-field {
+    width: 100%;
+    padding: 10px 35px 10px 15px;
+    border: none;
+    border-radius: 100px;
+    outline: none;
+    font-size: 20px;
+  }
+  
+  
+  .search-bar-button {
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-left: -33px;
+  }
+
+  
+  .search-bar-button img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+  }
+  
+
+  .filter {
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-left: -33px;
+  }
+
+
+  div.deckContainer {
+    display: flex;
+    align-content: center;
+  }
+
+  
+  .homeOptions {
+    flex-direction: column;
+    align-content: right;
+
+  }
+
+  .imgOptions{
+    height: 20px;
+    width: 20px;
+  }
+  
+  
+   #home-play{
+      justify-content: center;
+      background-color: #FFDA22;
+      font-size: 30px;
+      padding: 15px 30px 15px 30px;
+      border-radius: 15px;
+  }
+  
+  div#play{
+    display: flex;
+    justify-content: center;
+  }
+
+
+/*****************
+ EDIT/ADD NEW PAGE
+******************/
+
+h2.quizName {
+    color: var(--background);
+}
+
+button.saveBtn {
+    background-color: var(--primary-action);
+    color: var(--background);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+button.deleteBtn,
+button.addNewBtn {
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+button.deleteBtn {
+    flex-basis: 10%;
+}
+
+button.deleteBtn i.fa-trash-can {
+    font-size: 25px;
+    color: var(--delete-action);
+}
+
+button.addNewBtn i.fa-square-plus {
+    font-size: 42px;
+    color: var(--secondary-action);
+}
+
+button.endBtn {
+    background-color: #fff;
+    color: #354d72;
+    border: 1px solid #354d72;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+button.sendBtn {
+    background-color: yellow;
+    color: #354d72;
+    border: 1px solid #354d72;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+button.endBtn:hover{
+    background-color: #354d72;
+    color: #fff ;
+}
+
+.button-container {
+    display: flex; /* use flexbox layout */
+    justify-content: space-between; /* align buttons with equal spacing */
+    align-items: center; /* center buttons vertically */
+  }
+
+  .ABC-container {
+    display: flex; /* use flexbox layout */
+    justify-content: space-between; /* align buttons with equal spacing */
+    align-items: center; /* center buttons vertically */
+    padding: 20px;
+
+  }
+
+  .pr {
+    color:#fff;    
+    background-color: #a7e85c;
+    padding: 30px;
+    font-size: 16px;
+    margin: 0 50px;
+    text-align: center;
+    border-radius: 10px;
+
+  }
+
+  .prevBtn, .nextBtn {
+    background-color: #354d72;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 50%; /* use 50% border-radius to create a circle */
+    position: relative; /* set position to relative for arrow positioning */
+  }
+
+  .nextBtn::before{
+    content: "";
+    display: inline-block;
+    border-style: solid;
+    border-width: 15px 0 15px 15px;
+    border-color: transparent transparent transparent white;
+    margin-right: 10px;
+    position: absolute; /* position the arrow relative to the button */
+    top: 50%; /* position the arrow in the center vertically */
+    left: 50%; /* position the arrow in the center horizontally */
+    transform: translate(-50%, -50%); /* center the arrow within the button */
+    z-index: 1; /* bring the arrow to the front */
+  }
+
+  .prevBtn::before{
+    content: "";
+    display: inline-block;
+    border-style: solid;
+    border-width: 15px 0px 15px 15px;
+    border-color: transparent transparent transparent white;
+    margin-right: 10px;
+    position: absolute; /* position the arrow relative to the button */
+    top: 50%; /* position the arrow in the center vertically */
+    left: 50%; /* position the arrow in the center horizontally */
+    transform: translate(-50%, -50%) rotate(180deg); /* center the arrow within the button */
+    z-index: 1; /* bring the arrow to the front */
+  }
+
+form.editQuiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+}
+
+form.editQuiz .quizHead {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}
+
+form.editQuiz ul.quizContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 100%;
+    padding-left: 0;
+}
+
+form.editQuiz ul.quizContainer li.quizCard {
+    display: flex;
+    padding: 15px;
+    margin: 10px 5px;
+    height: 30%;
+}
+
+@media (max-width: 767px) {
+    form.editQuiz ul.quizContainer li.quizCard {
+        height: 40%;
+    }
+}
+
+li.quizCard .cardFieldContainer {
+    border: 2px solid var(--background);
+    padding: 15px;
+    border-radius: 5px; 
+    flex-basis: 90%;
+    display: flex;
+}
+
+form.playQuiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form.playQuiz .quizHead {
+    display: flex;
+    justify-content: space-between;
+}
+
+form.playQuiz ul.quizContainer {
+    list-style: none;
+}
+
+form.playQuiz ul.quizContainer li.quizCard {
+    padding: 5px;
+    margin: 10px 5px;
+    border: 1px solid var(--background);
+    border-radius: 5px;
+}
+
+li input.cardField {
+    /* flex-grow: 1; */
+    width: 40%;
+    color: var(--text);
+    background-color: var(--option);
+    border: none;
+    padding: 15px 20px;
+    margin: auto 2%;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+li input.cardFieldPlay {
+    color: #354d72;
+    background-color: white;
+    border: 1px solid #354d72;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+li input.cardQuestion {
+    color: #354d72;
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
