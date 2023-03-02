@@ -7,15 +7,8 @@ const userController = require('../controllers/userController');
 router.get('/',userController.view);
 router.get('/addquestion', userController.form);
 router.post('/addquestion', userController.create);
-router.get('/editcard/:card_id', userController.edit);
-
-//check 
-
+router.get('/editcard/:card_id', userController.edit);//checking
+router.post('/editcard/:card_id', userController.update);//checking
 router.get('/:id',userController.delete);
-
-
-
-
-
 
 module.exports = router;

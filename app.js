@@ -12,8 +12,7 @@ require('dotenv').config();
 const app = express();
 const port = 3000;
 
-//favicon
-app.use(favicon  (path.join(__dirname, 'public', 'logo.ico')));
+
 
 //parsing middleware
 //parse application/x-www-form-urlencoded
@@ -24,6 +23,8 @@ app.use(bodyParser.json());
 
 //static files
 app.use(express.static('public'));
+//serve favicon
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 //template engine
 app.engine('hbs', exphbs({ extname: '.hbs' }));
