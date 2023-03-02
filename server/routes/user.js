@@ -1,14 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userController');
+const appController = require('../controllers/appController');
+
+
+//views
+router.get('/',appController.view);
+//router.get('/edit',appController.edit);
+router.get('/play',appController.play);
+router.get('/help',appController.help);
 
 //delete, update, save
-
-router.get('/',userController.view);
-router.get('/addquestion', userController.form);
-router.post('/addquestion', userController.create);
-router.get('/editcard/:card_id', userController.edit);//checking
-router.post('/editcard/:card_id', userController.update);//checking
-router.get('/:id',userController.delete);
+router.get('/addquestion', appController.form);
+router.post('/addquestion', appController.create);
+router.get('/editcard/:card_id', appController.edit);//checking
+router.post('/editcard/:card_id', appController.update);//checking
+router.get('/:id',appController.delete);
 
 module.exports = router;

@@ -29,6 +29,18 @@ header {
 .header-text {
   color: white;
 }
+.header-text a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  text-shadow: none;
+}
+
+.header-text a:hover {
+  text-shadow: 0 0 10px rgb(255, 251, 33);
+}
+
 
 header h2 {
     color: #fff;

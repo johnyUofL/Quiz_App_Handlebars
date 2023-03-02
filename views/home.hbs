@@ -1,7 +1,7 @@
 <main>
     <form class="playQuiz" method="POST">
-        <div class="quizHead">
-            <h2 class="quizName">Quiz Name</h2>
+        <div class="quizHead d-flex justify-content-between align-items-center">
+            <h2 class="quizName text-center">Quiz Name</h2>
         </div>
 
         {{!-- Button to add a new question amd answer into the database--}}
@@ -17,7 +17,8 @@
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th></th>{{!-- delete if id is not needed--}}
+                    <th scope="col">#</th>
+                    </th>{{!-- delete if id is not needed--}}
                     <th scope="col">Question</th>
                     <th scope="col">Answer</th>
                     <th scope="col" class="text-end">Delete/Edit</th>
@@ -27,13 +28,15 @@
             <tbody>
                 {{#each rows}}
                 <tr>
-               
+
                     <th scope="row">{{this.card_id}}</th>{{!-- delete if id is not needed--}}
                     <td>{{this.question}}</td>
                     <td>{{this.answer}}</td>
                     <td class="text-end">
-                        <a href="/editcard/{{this.card_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pen"></i></a>
-                        <a href="/{{this.card_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-trash"></i></a>
+                        <a href="/editcard/{{this.card_id}}" type="button" class="btn btn-light btn-small"><i
+                                class="bi bi-pen"></i></a>
+                        <a href="/{{this.card_id}}" type="button" class="btn btn-light btn-small"><i
+                                class="bi bi-trash"></i></a>
                     </td>
                 </tr>
                 {{/each}}
@@ -41,5 +44,4 @@
             </tbody>
         </table>
     </form>
-
 </main>

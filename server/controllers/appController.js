@@ -31,6 +31,26 @@ exports.view = (req, res) => {
         });
     });
 };
+
+//display help page
+exports.help = (req, res) => {
+    res.render('help');
+};
+
+//display play page
+exports.play = (req, res) => {
+    res.render('play');
+    //code to populate the play page using mysql data and javascript
+
+};
+
+
+
+
+
+
+
+
 // Add new card 
 exports.form = (req, res) => {
     res.render('add-user');

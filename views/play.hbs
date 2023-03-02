@@ -1,0 +1,29 @@
+<main>
+    <form class="playQuiz" method="POST">
+        <div class="quizHead">
+            <h2 class="quizName">{{quiz}}</h2>
+        </div>
+
+        <ul class="quizContainer">
+            {{#each data}}
+            <li class="quizCard">
+                {{> card-list-play question=question answer=answer }}
+            </li>
+            {{/each}}
+        </ul>
+    </form>
+
+    <!-- A, B and C containers. -->
+    <div class="ABC-container">
+        <p class="pr">A</p>
+        <p class="pr">B</p>
+        <p class="pr">C</p>
+    </div>
+
+    <!-- buttons to navigate questions. -->
+    <div class="button-container">
+        <button class="prevBtn" type="Previous"></button>
+        <button class="endBtn" type="Submit">End Game</button>
+        <button class="nextBtn" type="Next"></button>
+    </div>
+</main>

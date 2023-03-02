@@ -1,14 +1,4 @@
 <main>
-    {{!-- Breadcrums--}}
-    <h2>Add Card</h2>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Card</li>
-        </ol>
-    </nav>
-    {{!-- End Breadcrums--}}
-
     {{!--information is collected from card form--}}
     {{#each rows}}
     <form class="row g-3 needs-validation" method="POST" action="/editcard/{{this.card_id}}" novalidate>
