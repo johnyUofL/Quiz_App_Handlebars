@@ -1,4 +1,11 @@
 <main>
+    {{!-- Breadcrumb--}}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/edit">Edit</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit Question</li>
+  </ol>
+</nav>
     {{!--information is collected from card form--}}
     {{#each rows}}
     <form class="row g-3 needs-validation" method="POST" action="/editcard/{{this.card_id}}" novalidate>

@@ -8,8 +8,21 @@ const pool = mysql.createPool({
     password: process.env.DB_PASS,
     database: process.env.DB_NAME
 });
-// Define a route handler for the view
-exports.view = (req, res) => {
+// Display home page
+
+//display help page
+exports.homeView = (req, res) => {
+    res.render('home');
+};
+
+
+
+
+
+
+
+//display edit page
+exports.editView = (req, res) => {
     // Get a connection from the pool
     pool.getConnection((err, connection) => {
         if (err) throw err; // Connection failed
@@ -27,58 +40,48 @@ exports.view = (req, res) => {
             }
 
             console.log('The data from users table are: \n', rows);
-            res.render('home', { rows });
+            res.render('edit', { rows });
         });
     });
 };
 
 //display help page
-exports.help = (req, res) => {
+exports.helpView = (req, res) => {
     res.render('help');
 };
 
 //display play page
-exports.play = (req, res) => {
+exports.playView = (req, res) => {
     res.render('play');
     //code to populate the play page using mysql data and javascript
 
 
     //Play game engine
-    
+
 
 };
-
-
-
-
-
-
-
-
 // Add new card 
 exports.form = (req, res) => {
-    res.render('add-user');
+    res.render('add-question');
 };
 exports.create = (req, res) => {
-    //res.render('add-user');
-    pool.getConnection((err, connection) => {   
-        if(err) throw err; // Connection failed 
+    //res.render('add-question');
+    pool.getConnection((err, connection) => {
+        if (err) throw err; // Connection failed 
         console.log('Connected as ID ' + connection.threadId);
         // Execute a query to get data from the database
         connection.query('INSERT INTO card (deck_id, question, answer) VALUES (4, ?, ?)', [req.body.add_question, req.body.add_answer], (err, rows) => {
             // Release the connection back to the pool
             connection.release();
-            if(err) {
+            if (err) {
                 console.log(err);
                 return;
             }
             console.log('The data from users table are: \n', rows);
-            res.render('add-user', {alert: 'Card added!'});
+            res.render('add-question', { alert: 'Card added!' });
         });
     });
 };
-//edit user 
-
 // Edit user
 exports.edit = (req, res) => {
     pool.getConnection((err, connection) => {
@@ -91,13 +94,13 @@ exports.edit = (req, res) => {
             connection.release();
             if (!err) {
                 res.render('edit-card', { rows });
-               } else {
-            console.log(err);
+            } else {
+                console.log(err);
             }
             console.log('The data from users table are: \n', rows);
         });
     });
-  };
+};
 // Update user
 exports.update = (req, res) => {
     const { card_id, deck_id, add_question, add_answer } = req.body;
@@ -107,25 +110,25 @@ exports.update = (req, res) => {
         console.log('Connected as ID ' + connection.threadId);
 
         // Execute a query to get data from the database
-        connection.query('UPDATE card SET question = ?, answer = ? WHERE card_id =?', [add_question, add_answer,req.params.card_id], (err, rows) => {
+        connection.query('UPDATE card SET question = ?, answer = ? WHERE card_id =?', [add_question, add_answer, req.params.card_id], (err, rows) => {
             // Release the connection back to the pool
             connection.release();
             if (!err) {
-               pool.getConnection((err, connection) => {
-                if (err) throw err; // Connection failed
-                console.log('Connected as ID ' + connection.threadId);
-                //user connection
-                connection.query("SELECT * FROM card WHERE card_id = ?",
-                [req.params.card_id], (err, rows) => {
-                    connection.release();
-                    if (!err) {
-                        res.render('edit-card', { rows });
-                        }
-                        else {
-                        console.log(err);
-                        }
-                        console.log('The data from user table: \n', rows);
-                    });
+                pool.getConnection((err, connection) => {
+                    if (err) throw err; // Connection failed
+                    console.log('Connected as ID ' + connection.threadId);
+                    //user connection
+                    connection.query("SELECT * FROM card WHERE card_id = ?",
+                        [req.params.card_id], (err, rows) => {
+                            connection.release();
+                            if (!err) {
+                                res.render('edit-card', { rows });
+                            }
+                            else {
+                                console.log(err);
+                            }
+                            console.log('The data from user table: \n', rows);
+                        });
                 });
 
 
@@ -133,13 +136,13 @@ exports.update = (req, res) => {
 
 
 
-               } else {
-            console.log(err);
+            } else {
+                console.log(err);
             }
             console.log('The data from users table are: \n', rows);
         });
     });
-  };
+};
 // Delete User
 exports.delete = (req, res) => {
     pool.getConnection((err, connection) => {
@@ -155,7 +158,7 @@ exports.delete = (req, res) => {
                 return;
             }
             console.log('The data from users table are: \n', rows);
-            res.redirect('/');
+            res.redirect('/edit');
         });
     });
 };
