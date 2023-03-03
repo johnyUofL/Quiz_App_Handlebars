@@ -42,6 +42,10 @@ exports.play = (req, res) => {
     res.render('play');
     //code to populate the play page using mysql data and javascript
 
+
+    //Play game engine
+    
+
 };
 
 
