@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-
 // Create a connection pool
 const pool = mysql.createPool({
     connectionLimit: 10,
@@ -8,19 +7,10 @@ const pool = mysql.createPool({
     password: process.env.DB_PASS,
     database: process.env.DB_NAME
 });
-// Display home page
-
-//display help page
+//display home page
 exports.homeView = (req, res) => {
     res.render('home');
 };
-
-
-
-
-
-
-
 //display edit page
 exports.editView = (req, res) => {
     // Get a connection from the pool
@@ -44,22 +34,39 @@ exports.editView = (req, res) => {
         });
     });
 };
+//display play page
+exports.playView = (req, res) => {
 
+    //code to populate the play page using mysql data and javascript
+
+    pool.getConnection((err, connection) => {
+        if (err) throw err; // Connection failed
+
+        console.log('Connected as ID ' + connection.threadId);
+
+        // Execute a query to get data from the database
+        connection.query('SELECT * FROM card', (err, rows) => {
+            // Release the connection back to the pool
+            connection.release();
+
+            if (err) {
+                console.log(err);
+                return;
+            }
+
+            console.log('The data from users table are: \n', rows);
+            res.render('play', { rows });
+        });
+    });
+    //Game Engine Code
+    //Javascript for the game engine can be added here or in a different controller.
+
+};
 //display help page
 exports.helpView = (req, res) => {
     res.render('help');
 };
 
-//display play page
-exports.playView = (req, res) => {
-    res.render('play');
-    //code to populate the play page using mysql data and javascript
-
-
-    //Play game engine
-
-
-};
 // Add new card 
 exports.form = (req, res) => {
     res.render('add-question');
@@ -130,12 +137,6 @@ exports.update = (req, res) => {
                             console.log('The data from user table: \n', rows);
                         });
                 });
-
-
-
-
-
-
             } else {
                 console.log(err);
             }
